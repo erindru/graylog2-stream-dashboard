@@ -5,6 +5,7 @@ RUN apt-get -qqy update \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN wget https://github.com/Graylog2/graylog2-stream-dashboard/releases/download/0.90/graylog2-stream-dashboard-0.90.0.tgz \
   && tar -xvf graylog2*.tgz \
-  && mv graylog2*/* /usr/share/nginx/html \
+  && rm -fr /usr/share/nginx/html/* \
+  && mv graylog2*/app/* /usr/share/nginx/html \
   && rm -fr graylog*
   
